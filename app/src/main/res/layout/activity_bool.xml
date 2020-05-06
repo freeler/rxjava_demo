@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".demo.BoolActivity">
+
+    <Button
+        android:id="@+id/all"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="all"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/takeWhile"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="takeWhile"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/takeUntil"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="takeUntil"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/skipWhile"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="skipWhile"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/skipUntil"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="skipUntil"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/sequenceEqual"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="sequenceEqual"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/contains"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="contains"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/isEmpty"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="isEmpty"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/defaultIfEmpty"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="defaultIfEmpty"
+        tools:ignore="HardcodedText" />
+
+
+</LinearLayout>

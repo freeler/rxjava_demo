@@ -28,6 +28,9 @@
         <activity
             android:name=".demo.FilterActivity"
             android:label="过滤操作符" />
+        <activity
+            android:name=".demo.BoolActivity"
+            android:label="条件操作符" />
 
     </application>
 

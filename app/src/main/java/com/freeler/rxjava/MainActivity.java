@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.freeler.rxjava.demo.BoolActivity;
 import com.freeler.rxjava.demo.CreateActivity;
 import com.freeler.rxjava.demo.FilterActivity;
 import com.freeler.rxjava.demo.MapActivity;
@@ -37,6 +38,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, FilterActivity.class));
+            }
+        });
+        findViewById(R.id.boolDemo).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, BoolActivity.class));
             }
         });
     }
