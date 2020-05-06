@@ -25,6 +25,9 @@
         <activity
             android:name=".demo.MapActivity"
             android:label="变换操作符" />
+        <activity
+            android:name=".demo.FilterActivity"
+            android:label="过滤操作符" />
 
     </application>
 

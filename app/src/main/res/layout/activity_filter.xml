@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".demo.FilterActivity">
+
+    <Button
+        android:id="@+id/filter"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="filter"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/ofType"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="ofType"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/skip"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="skip"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/skipLast"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="skipLast"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/distinct"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="distinct"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/distinctUntilChanged"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="distinctUntilChanged"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/take"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="take"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/takeLast"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="takeLast"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/firstElement"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="firstElement"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/lastElement"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="lastElement"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/elementAt"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="elementAt"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/elementAtOrError"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="elementAtOrError"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>
