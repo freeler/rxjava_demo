@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".demo.CreateActivity">
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="create"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/just"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="just"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/fromArray"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="fromArray"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/fromIterable"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="fromIterable"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/empty"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="empty"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/defer"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="defer"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/timer"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="timer"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/interval"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="interval"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/intervalRange"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="intervalRange"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/range"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="range"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".demo.MapActivity">
+
+    <Button
+        android:id="@+id/map"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="map"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/scan"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="scan"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/flatMap"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="flatMap"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/concatMap"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="concatMap"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/buffer"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="buffer"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/window"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="window"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/groupBy"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:text="groupBy"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>
