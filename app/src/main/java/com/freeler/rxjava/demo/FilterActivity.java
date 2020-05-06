@@ -105,7 +105,7 @@ public class FilterActivity extends AppCompatActivity {
     }
 
     /**
-     * 过滤操作符
+     * 只发射指定条件的事件
      * >>>>>>
      * 过滤后接收到的数据：1
      * 过滤后接收到的数据：3
