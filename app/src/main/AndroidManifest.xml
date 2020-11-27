@@ -31,6 +31,9 @@
         <activity
             android:name=".rxjava.BoolActivity"
             android:label="Rxjava2条件操作符" />
+        <activity
+            android:name=".annotation.MyFieldTest"
+            android:label="Rxjava2条件操作符" />
 
     </application>
 

@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.freeler.demo.annotation.MyFieldTest;
 import com.freeler.demo.rxjava.BoolActivity;
 import com.freeler.demo.rxjava.CreateActivity;
 import com.freeler.demo.rxjava.FilterActivity;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.annotationSimple).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MainActivity.this, MyFieldTest.class));
             }
         });
     }
