@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.freeler.rxjava">
+    package="com.freeler.demo">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="操作符示例">
+            android:label="demo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,17 +20,17 @@
         </activity>
 
         <activity
-            android:name=".demo.CreateActivity"
-            android:label="创建操作符" />
+            android:name=".rxjava.CreateActivity"
+            android:label="Rxjava2创建操作符" />
         <activity
-            android:name=".demo.MapActivity"
-            android:label="变换操作符" />
+            android:name=".rxjava.MapActivity"
+            android:label="Rxjava2变换操作符" />
         <activity
-            android:name=".demo.FilterActivity"
-            android:label="过滤操作符" />
+            android:name=".rxjava.FilterActivity"
+            android:label="Rxjava2过滤操作符" />
         <activity
-            android:name=".demo.BoolActivity"
-            android:label="条件操作符" />
+            android:name=".rxjava.BoolActivity"
+            android:label="Rxjava2条件操作符" />
 
     </application>
 

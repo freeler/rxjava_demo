@@ -1,4 +1,4 @@
-package com.freeler.rxjava.demo;
+package com.freeler.demo.rxjava;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.freeler.rxjava.R;
+import com.freeler.demo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,18 +133,18 @@ public class CreateActivity extends AppCompatActivity {
             // 3. 通过通过订阅 subscribe 连接观察者和被观察者
             // 4. 创建观察者 & 定义响应事件的行为
             @Override
-            public void onSubscribe(Disposable d) {
+            public void onSubscribe(@NonNull Disposable d) {
                 Log.d(TAG, "开始采用subscribe连接");
             }
             // 默认最先调用复写的 onSubscribe（）
 
             @Override
-            public void onNext(Integer value) {
+            public void onNext(@NonNull Integer value) {
                 Log.d(TAG, "接收到了事件" + value);
             }
 
             @Override
-            public void onError(Throwable e) {
+            public void onError(@NonNull Throwable e) {
                 Log.d(TAG, "对Error事件作出响应");
             }
 
@@ -169,18 +169,18 @@ public class CreateActivity extends AppCompatActivity {
                 .subscribe(new Observer<Integer>() {
 
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe（）
 
                     @Override
-                    public void onNext(Integer value) {
+                    public void onNext(@NonNull Integer value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -204,18 +204,18 @@ public class CreateActivity extends AppCompatActivity {
         Observable.fromArray(items)
                 .subscribe(new Observer<Integer>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe()
 
                     @Override
-                    public void onNext(Integer value) {
+                    public void onNext(@NonNull Integer value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -242,18 +242,18 @@ public class CreateActivity extends AppCompatActivity {
         Observable.fromIterable(list)
                 .subscribe(new Observer<Integer>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe()
 
                     @Override
-                    public void onNext(Integer value) {
+                    public void onNext(@NonNull Integer value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -275,7 +275,7 @@ public class CreateActivity extends AppCompatActivity {
         Observable.just(1, 2, 3)
                 .flatMap(new Function<Integer, ObservableSource<Integer>>() {
                     @Override
-                    public ObservableSource<Integer> apply(Integer integer) throws Exception {
+                    public ObservableSource<Integer> apply(@NonNull Integer integer) {
                         if (integer == 2) {
 //                            return Observable.never();
                             return Observable.empty();
@@ -286,17 +286,17 @@ public class CreateActivity extends AppCompatActivity {
                 })
                 .subscribe(new Observer<Integer>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.i(TAG, "开始采用subscribe连接");
                     }
 
                     @Override
-                    public void onNext(Integer integer) {
+                    public void onNext(@NonNull Integer integer) {
                         Log.i(TAG, "接收到了事件" + integer);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.i(TAG, "onError = " + e.getMessage());
                     }
 
@@ -325,17 +325,17 @@ public class CreateActivity extends AppCompatActivity {
         observable.subscribe(new Observer<Integer>() {
 
             @Override
-            public void onSubscribe(Disposable d) {
+            public void onSubscribe(@NonNull Disposable d) {
                 Log.d(TAG, "开始采用subscribe连接");
             }
 
             @Override
-            public void onNext(Integer value) {
+            public void onNext(@NonNull Integer value) {
                 Log.d(TAG, "接收到的整数是" + value);
             }
 
             @Override
-            public void onError(Throwable e) {
+            public void onError(@NonNull Throwable e) {
                 Log.d(TAG, "对Error事件作出响应");
             }
 
@@ -348,17 +348,17 @@ public class CreateActivity extends AppCompatActivity {
         observable.subscribe(new Observer<Integer>() {
 
             @Override
-            public void onSubscribe(Disposable d) {
+            public void onSubscribe(@NonNull Disposable d) {
                 Log.d(TAG, "开始采用subscribe连接");
             }
 
             @Override
-            public void onNext(Integer value) {
+            public void onNext(@NonNull Integer value) {
                 Log.d(TAG, "接收到的整数是" + value);
             }
 
             @Override
-            public void onError(Throwable e) {
+            public void onError(@NonNull Throwable e) {
                 Log.d(TAG, "对Error事件作出响应");
             }
 
@@ -378,18 +378,18 @@ public class CreateActivity extends AppCompatActivity {
         Observable.timer(2, TimeUnit.SECONDS)
                 .subscribe(new Observer<Long>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe()
 
                     @Override
-                    public void onNext(Long value) {
+                    public void onNext(@NonNull Long value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -412,18 +412,18 @@ public class CreateActivity extends AppCompatActivity {
                 // 该例子发送的事件序列特点：延迟3s后发送事件，每隔1秒产生1个数字（从0开始递增1，无限个）
                 .subscribe(new Observer<Long>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe()
 
                     @Override
-                    public void onNext(Long value) {
+                    public void onNext(@NonNull Long value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -450,18 +450,18 @@ public class CreateActivity extends AppCompatActivity {
                 // 2. 第1次延迟 2s发送，之后每隔 5秒产生1个数字(递增加1)
                 .subscribe(new Observer<Long>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe()
 
                     @Override
-                    public void onNext(Long value) {
+                    public void onNext(@NonNull Long value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -486,18 +486,18 @@ public class CreateActivity extends AppCompatActivity {
                 // 该例子发送的事件序列特点: 从3开始发送，每次发送事件递增1,一共发送4个事件
                 .subscribe(new Observer<Integer>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "开始采用subscribe连接");
                     }
                     // 默认最先调用复写的 onSubscribe()
 
                     @Override
-                    public void onNext(Integer value) {
+                    public void onNext(@NonNull Integer value) {
                         Log.d(TAG, "接收到了事件" + value);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 

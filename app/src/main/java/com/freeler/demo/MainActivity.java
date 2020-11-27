@@ -1,4 +1,4 @@
-package com.freeler.rxjava;
+package com.freeler.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.freeler.rxjava.demo.BoolActivity;
-import com.freeler.rxjava.demo.CreateActivity;
-import com.freeler.rxjava.demo.FilterActivity;
-import com.freeler.rxjava.demo.MapActivity;
+import com.freeler.demo.rxjava.BoolActivity;
+import com.freeler.demo.rxjava.CreateActivity;
+import com.freeler.demo.rxjava.FilterActivity;
+import com.freeler.demo.rxjava.MapActivity;
 
 /**
  * @author: xuzeyang
@@ -44,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, BoolActivity.class));
+            }
+        });
+
+        findViewById(R.id.annotationSimple).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }

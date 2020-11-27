@@ -1,4 +1,4 @@
-package com.freeler.rxjava
+package com.freeler.demo.rxjava
 
 import org.junit.Test
 

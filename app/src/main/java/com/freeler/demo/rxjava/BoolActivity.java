@@ -1,4 +1,4 @@
-package com.freeler.rxjava.demo;
+package com.freeler.demo.rxjava;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.freeler.rxjava.R;
+import com.freeler.demo.R;
 
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +17,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
@@ -27,6 +28,7 @@ import io.reactivex.functions.Predicate;
  * @author: xuzeyang
  * @Date: 2020/5/6
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 @SuppressLint("CheckResult")
 public class BoolActivity extends AppCompatActivity {
 
@@ -107,23 +109,23 @@ public class BoolActivity extends AppCompatActivity {
         Observable.just(1, "2")
                 .all(new Predicate<Serializable>() {
                     @Override
-                    public boolean test(Serializable serializable) throws Exception {
+                    public boolean test(@NonNull Serializable serializable) {
                         return serializable instanceof String;
                     }
                 })
                 .subscribe(new SingleObserver<Boolean>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
                         Log.d(TAG, "函数条件 onSubscribe");
                     }
 
                     @Override
-                    public void onSuccess(Boolean aBoolean) {
+                    public void onSuccess(@NonNull Boolean aBoolean) {
                         Log.d(TAG, "函数条件：" + aBoolean);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "函数条件 onError");
                     }
                 });
@@ -136,13 +138,13 @@ public class BoolActivity extends AppCompatActivity {
         Observable.just(1, 2, 3, 1, 2, 3)
                 .takeWhile(new Predicate<Integer>() {
                     @Override
-                    public boolean test(Integer integer) throws Exception {
+                    public boolean test(@NonNull Integer integer) {
                         return integer > 2;
                     }
                 })
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "满足函数条件的数据：" + integer);
                     }
                 });
@@ -158,13 +160,13 @@ public class BoolActivity extends AppCompatActivity {
         Observable.just(1, 2, 3, 1, 2, 3)
                 .takeUntil(new Predicate<Integer>() {
                     @Override
-                    public boolean test(Integer integer) throws Exception {
+                    public boolean test(@NonNull Integer integer) {
                         return integer > 2;
                     }
                 })
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "满足函数条件的数据：" + integer);
                     }
                 });
@@ -182,13 +184,13 @@ public class BoolActivity extends AppCompatActivity {
         Observable.just(1, 2, 3, 1, 2, 3)
                 .skipWhile(new Predicate<Integer>() {
                     @Override
-                    public boolean test(Integer integer) throws Exception {
+                    public boolean test(@NonNull Integer integer) {
                         return integer != 3;
                     }
                 })
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "满足函数条件的数据：" + integer);
                     }
                 });
@@ -201,10 +203,10 @@ public class BoolActivity extends AppCompatActivity {
         Observable.just(1, 2, 3, 1, 2, 3)
                 .skipUntil(new ObservableSource<Object>() {
                     @Override
-                    public void subscribe(Observer<? super Object> observer) {
+                    public void subscribe(@NonNull Observer<? super Object> observer) {
                         Observable.timer(1, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
                             @Override
-                            public void accept(Long aLong) throws Exception {
+                            public void accept(Long aLong) {
                                 Log.d(TAG, "延迟一秒发射");
                             }
                         });
@@ -212,7 +214,7 @@ public class BoolActivity extends AppCompatActivity {
                 })
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "满足函数条件的数据：" + integer);
                     }
                 });
@@ -225,7 +227,7 @@ public class BoolActivity extends AppCompatActivity {
         Observable.sequenceEqual(Observable.just(1), Observable.just(1))
                 .subscribe(new Consumer<Boolean>() {
                     @Override
-                    public void accept(Boolean aBoolean) throws Exception {
+                    public void accept(Boolean aBoolean) {
                         Log.d(TAG, "是否满足条件：" + aBoolean);
                     }
                 });
@@ -239,7 +241,7 @@ public class BoolActivity extends AppCompatActivity {
                 .contains(1)
                 .subscribe(new Consumer<Boolean>() {
                     @Override
-                    public void accept(Boolean aBoolean) throws Exception {
+                    public void accept(Boolean aBoolean) {
                         Log.d(TAG, "是否满足条件：" + aBoolean);
                     }
                 });
@@ -253,7 +255,7 @@ public class BoolActivity extends AppCompatActivity {
                 .isEmpty()
                 .subscribe(new Consumer<Boolean>() {
                     @Override
-                    public void accept(Boolean aBoolean) throws Exception {
+                    public void accept(Boolean aBoolean) {
                         Log.d(TAG, "是否满足条件：" + aBoolean);
                     }
                 });
@@ -267,7 +269,7 @@ public class BoolActivity extends AppCompatActivity {
                 .defaultIfEmpty(99)
                 .subscribe(new Consumer<Object>() {
                     @Override
-                    public void accept(Object object) throws Exception {
+                    public void accept(Object object) {
                         Log.d(TAG, "满足函数条件的数据：" + object);
                     }
                 });

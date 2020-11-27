@@ -4,35 +4,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".demo.CreateActivity">
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/createDemo"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:text="创建操作符"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Rxjava2系列 Demo"
         tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/mapDemo"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:text="变换操作符"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/createDemo"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="创建操作符"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/mapDemo"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="变换操作符"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/filterDemo"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="过滤操作符"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/boolDemo"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="条件操作符"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Annotation Demo"
         tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/filterDemo"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:text="过滤操作符"
-        tools:ignore="HardcodedText" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/boolDemo"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:text="条件操作符"
-        tools:ignore="HardcodedText" />
+        <Button
+            android:id="@+id/annotationSimple"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="注解"
+            tools:ignore="HardcodedText" />
 
+    </LinearLayout>
 
 </LinearLayout>

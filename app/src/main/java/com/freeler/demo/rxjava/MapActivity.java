@@ -1,4 +1,4 @@
-package com.freeler.rxjava.demo;
+package com.freeler.demo.rxjava;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -8,7 +8,9 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.freeler.rxjava.R;
+import com.freeler.demo.R;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.BiFunction;
@@ -31,6 +34,7 @@ import io.reactivex.observables.GroupedObservable;
  * @author: xuzeyang
  * @Date: 2020/5/6
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 @SuppressLint("CheckResult")
 public class MapActivity extends AppCompatActivity {
 
@@ -99,7 +103,7 @@ public class MapActivity extends AppCompatActivity {
 
             // 1. 被观察者发送事件 = 参数为整型 = 1、2、3
             @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) {
                 emitter.onNext(1);
                 emitter.onNext(2);
                 emitter.onNext(3);
@@ -108,14 +112,14 @@ public class MapActivity extends AppCompatActivity {
             // 2. 使用Map变换操作符中的Function函数对被观察者发送的事件进行统一变换：整型变换成字符串类型
         }).map(new Function<Integer, String>() {
             @Override
-            public String apply(Integer integer) throws Exception {
+            public String apply(@NonNull Integer integer) {
                 return "使用 Map变换操作符 将事件" + integer + "的参数从 整型" + integer + " 变换成 字符串类型" + integer;
             }
         }).subscribe(new Consumer<String>() {
 
             // 3. 观察者接收事件时，是接收到变换后的事件 = 字符串类型
             @Override
-            public void accept(String s) throws Exception {
+            public void accept(String s) {
                 Log.d(TAG, s);
             }
         });
@@ -135,20 +139,21 @@ public class MapActivity extends AppCompatActivity {
         Observable.create(new ObservableOnSubscribe<Integer>() {
 
             @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) {
                 emitter.onNext(10);
                 emitter.onNext(20);
                 emitter.onNext(30);
             }
         }).scan(new BiFunction<Integer, Integer, Integer>() {
+            @NotNull
             @Override
-            public Integer apply(Integer integer, Integer integer2) throws Exception {
+            public Integer apply(@NonNull Integer integer, @NonNull Integer integer2) {
                 return integer * integer2;
             }
         }).subscribe(new Consumer<Integer>() {
 
             @Override
-            public void accept(Integer s) throws Exception {
+            public void accept(Integer s) {
                 // 发射10的时候，value为10
                 // 发射20的时候，用保存的value 10运算得到200
                 // 发射30的时候，用保存的value 200运算得到6000
@@ -165,7 +170,7 @@ public class MapActivity extends AppCompatActivity {
     private void flatMap() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) {
                 emitter.onNext(1);
                 emitter.onNext(2);
                 emitter.onNext(3);
@@ -174,7 +179,7 @@ public class MapActivity extends AppCompatActivity {
             // 采用flatMap（）变换操作符
         }).flatMap(new Function<Integer, ObservableSource<String>>() {
             @Override
-            public ObservableSource<String> apply(Integer integer) throws Exception {
+            public ObservableSource<String> apply(@NonNull Integer integer) {
                 final List<String> list = new ArrayList<>();
                 for (int i = 0; i < 3; i++) {
                     list.add("我是事件 " + integer + "拆分后的子事件" + i);
@@ -185,7 +190,7 @@ public class MapActivity extends AppCompatActivity {
             }
         }).subscribe(new Consumer<String>() {
             @Override
-            public void accept(String s) throws Exception {
+            public void accept(String s) {
                 Log.d(TAG, s);
             }
         });
@@ -197,7 +202,7 @@ public class MapActivity extends AppCompatActivity {
     private void concatMap() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+            public void subscribe(@NonNull ObservableEmitter<Integer> emitter) {
                 emitter.onNext(1);
                 emitter.onNext(2);
                 emitter.onNext(3);
@@ -206,7 +211,7 @@ public class MapActivity extends AppCompatActivity {
             // 采用flatMap（）变换操作符
         }).concatMap(new Function<Integer, ObservableSource<String>>() {
             @Override
-            public ObservableSource<String> apply(Integer integer) throws Exception {
+            public ObservableSource<String> apply(@NonNull Integer integer) {
                 final List<String> list = new ArrayList<>();
                 for (int i = 0; i < 3; i++) {
                     list.add("我是事件 " + integer + "拆分后的子事件" + i);
@@ -217,7 +222,7 @@ public class MapActivity extends AppCompatActivity {
             }
         }).subscribe(new Consumer<String>() {
             @Override
-            public void accept(String s) throws Exception {
+            public void accept(String s) {
                 Log.d(TAG, s);
             }
         });
@@ -255,12 +260,12 @@ public class MapActivity extends AppCompatActivity {
                 // 步长 = 每次获取新事件的数量
                 .subscribe(new Observer<List<Integer>>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onSubscribe(@NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(List<Integer> stringList) {
+                    public void onNext(@NonNull List<Integer> stringList) {
                         //
                         Log.d(TAG, " 缓存区里的事件数量 = " + stringList.size());
                         for (Integer value : stringList) {
@@ -269,7 +274,7 @@ public class MapActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onError(Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         Log.d(TAG, "对Error事件作出响应");
                     }
 
@@ -303,23 +308,23 @@ public class MapActivity extends AppCompatActivity {
                 .window(2)
                 .subscribe(new Consumer<Observable<Integer>>() {
                     @Override
-                    public void accept(Observable<Integer> integerObservable) throws Exception {
+                    public void accept(Observable<Integer> integerObservable) {
                         Log.d(TAG, "onNext");
                         integerObservable.subscribe(new Consumer<Integer>() {
                             @Override
-                            public void accept(Integer integer) throws Exception {
+                            public void accept(Integer integer) {
                                 Log.d(TAG, "accept:" + integer);
                             }
                         });
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    public void accept(Throwable throwable) {
                         Log.d(TAG, "onError");
                     }
                 }, new Action() {
                     @Override
-                    public void run() throws Exception {
+                    public void run() {
                         Log.d(TAG, "onComplete");
                     }
                 });
@@ -347,16 +352,16 @@ public class MapActivity extends AppCompatActivity {
         Observable.range(1, 8)
                 .groupBy(new Function<Integer, String>() {
                     @Override
-                    public String apply(Integer integer) throws Exception {
+                    public String apply(@NonNull Integer integer) {
                         return (integer % 2 == 0) ? "偶数" : "奇数";
                     }
                 }).subscribe(new Consumer<GroupedObservable<String, Integer>>() {
             @Override
-            public void accept(GroupedObservable<String, Integer> stringIntegerGroupedObservable) throws Exception {
+            public void accept(GroupedObservable<String, Integer> stringIntegerGroupedObservable) {
                 final String key = stringIntegerGroupedObservable.getKey();
                 stringIntegerGroupedObservable.subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, key + "包含：" + integer);
                     }
                 });

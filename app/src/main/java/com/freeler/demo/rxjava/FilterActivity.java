@@ -1,4 +1,4 @@
-package com.freeler.rxjava.demo;
+package com.freeler.demo.rxjava;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -8,9 +8,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.freeler.rxjava.R;
+import com.freeler.demo.R;
 
 import io.reactivex.Observable;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 
@@ -20,6 +21,7 @@ import io.reactivex.functions.Predicate;
  * @author: xuzeyang
  * @Date: 2020/5/6
  */
+@SuppressWarnings("ResultOfMethodCallIgnored")
 @SuppressLint("CheckResult")
 public class FilterActivity extends AppCompatActivity {
 
@@ -118,14 +120,14 @@ public class FilterActivity extends AppCompatActivity {
         Observable.range(1, 10)
                 .filter(new Predicate<Integer>() {
                     @Override
-                    public boolean test(Integer integer) throws Exception {
+                    public boolean test(@NonNull Integer integer) {
                         // 过滤出奇数
                         return integer % 2 == 1;
                     }
                 })
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -141,7 +143,7 @@ public class FilterActivity extends AppCompatActivity {
                 .ofType(Integer.class)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -158,7 +160,7 @@ public class FilterActivity extends AppCompatActivity {
                 .skip(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -176,7 +178,7 @@ public class FilterActivity extends AppCompatActivity {
                 .skipLast(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -192,7 +194,7 @@ public class FilterActivity extends AppCompatActivity {
                 .distinct()
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -210,7 +212,7 @@ public class FilterActivity extends AppCompatActivity {
                 .distinctUntilChanged()
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -227,7 +229,7 @@ public class FilterActivity extends AppCompatActivity {
                 .take(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -243,7 +245,7 @@ public class FilterActivity extends AppCompatActivity {
                 .takeLast(2)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -258,7 +260,7 @@ public class FilterActivity extends AppCompatActivity {
                 .firstElement()
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -273,7 +275,7 @@ public class FilterActivity extends AppCompatActivity {
                 .lastElement()
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -288,7 +290,7 @@ public class FilterActivity extends AppCompatActivity {
                 .elementAt(6, 99)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 });
@@ -303,12 +305,12 @@ public class FilterActivity extends AppCompatActivity {
                 .elementAtOrError(6)
                 .subscribe(new Consumer<Integer>() {
                     @Override
-                    public void accept(Integer integer) throws Exception {
+                    public void accept(Integer integer) {
                         Log.d(TAG, "过滤后接收到的数据：" + integer);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    public void accept(Throwable throwable) {
                         Log.d(TAG, "越界抛出了error");
                     }
                 });
